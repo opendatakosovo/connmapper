@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         double alt = location.getAltitude();
 
         // Get network class
-        String networkClass = getNetworkClass(getApplicationContext());
+        String networkType = getNetworkType(getApplicationContext());
 
         // Eventually change this with an API POST request saving the information in a database in some server.
-        Toast.makeText(getApplicationContext(), lat + ", " + lng + ": " + networkClass, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), lat + ", " + lng + ": " + networkType, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     /**
-     * Get the network class. Can either be 2G, 3G, 4G, or Unknown.
+     * Get the network type. Can either be 2G, 3G, 4G, or Unknown.
      * @param context
      * @return
      */
-    public String getNetworkClass(Context context) {
+    public String getNetworkType(Context context) {
         TelephonyManager mTelephonyManager = (TelephonyManager)
                 context.getSystemService(Context.TELEPHONY_SERVICE);
         int networkType = mTelephonyManager.getNetworkType();
